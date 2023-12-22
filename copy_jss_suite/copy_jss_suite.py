@@ -5,7 +5,7 @@ from lib.QualiJSSAPI import QualiJSSAPI
 
 
 def main(src_environment, src_domain, dst_environment, dst_domain, logger, old_suite_name, new_suite_name):
-    src_config_file = f'c:/users/hegdsa8/cloudshell_configs/{src_environment}.json'
+    src_config_file = f'c:/cloudshell_configs/{src_environment}.json'
     quali_config = helpers.read_config(src_config_file)
     quali_config['domain'] = src_domain
     quali_jss_config = helpers.read_config(src_config_file)
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     suite_name = 'Sadanand Test 2'
     new_suite_name = f'{suite_name}_new'
 
-    logger_config = helpers.read_config('c:/users/hegdsa8/cloudshell_configs/verification_logger_config.json')
+    logger_config = helpers.read_config('c:/cloudshell_configs/verification_logger_config.json')
     logger = helpers.get_logger(logger_config, src_domain)
     print(f'logging to {[h.stream.name for h in logger.handlers]}')
 
