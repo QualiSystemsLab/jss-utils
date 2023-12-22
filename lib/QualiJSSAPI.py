@@ -126,10 +126,10 @@ if __name__ == '__main__':
     import helpers
 
     domain = 'PIP'
-    logger_config = helpers.read_config(r'c:/users/hegdsa8/cloudshell_configs/logger_config.json')
+    logger_config = helpers.read_config(r'c:cloudshell_configs/logger_config.json')
     logger = helpers.get_logger(logger_config, prefix='')
 
-    quali_jss_config = helpers.read_config(r'c:/users/hegdsa8/cloudshell_configs/lab.json')
+    quali_jss_config = helpers.read_config(r'c:/cloudshell_configs/lab.json')
     quali_jss_config['domain'] = domain
     quali_jss_api = QualiJSSAPI(quali_jss_config)
     tests = quali_jss_api.get_tests(domain)
@@ -143,8 +143,8 @@ if __name__ == '__main__':
     #         suite_details = quali_jss_api.get_suite_details(quali_jss_config.get('domain'), id)
     # pprint(suite_details)
 
-    suite_id = [suite.get('id') for suite in suites if suite.get('name') == 'Simulation 5gNode - 0'][0]
+    suite_id = [suite.get('id') for suite in suites if suite.get('name') == 'Suite-Name'][0]
     suite_details = quali_jss_api.get_suite_details(domain, suite_id)
     suite_owner = suite_details.get('ownerUsername')
     print(f'Current owner: {suite_owner}')
-    quali_jss_api.update_suite_owner(logger, 'CDS OPS', 'Combined Visible Health check--DEBUG', 'hegdsa8')
+    quali_jss_api.update_suite_owner(logger, 'CDS OPS', 'Combined Visible Health check--DEBUG', 'owner_name')
